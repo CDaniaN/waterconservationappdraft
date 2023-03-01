@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2family=Golos+Text:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    background-color: #caf0fe;
+    background-image: url("water.jpeg");
+}
+
+.form{
+    position: absolute;
+    max-width: 430px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 3px;
+    background: #F9F8F6;
+    opacity: 0.95;
+}
+
+.form.signup{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.forms.show-signup .form.signup{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.forms.show-signup .form.login{
+    opacity: 0;
+    pointer-events: none;
+}
+
+header{
+    font-size: 28px;
+    font-weight: 600;
+    color: #232836;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+form{
+    margin-top: 30px;
+}
+
+.form .field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+
+.field input,
+.field button{
+    height: 100%;
+    width: 100%;
+    border: none;
+    display: block;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+    background: #eeeeee;
+    transition: background 0.2s, border-color 0.5s;
+}
+
+.field input{
+    padding: 0 15px;
+    border: 1px solid #dddddd;
+}
+
+.field input:focus{
+    border-bottom-width: 2px;
+}
+
+.field button{
+    color: #fff;
+    background-color: #006d8f;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    width: 99%;
+    font-weight: bold;
+    outline: none;
+}
+
+.field button:hover{
+    background-color: #00ace5;
+}
+
+.form-link{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-link span,
+.form-link a{
+    font-size: 14px;
+    font-weight: 400;
+    color: #232836;
+}
+
+.form a{
+    color: #0061ff;
+    text-decoration: none;
+}
+
+.form-content a:hover{
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #0061ff;
+}
+

@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*Might delete this*/
+  font-family: 'Poppins', sans-serif;
+}
+
+.container 
+{
+  height: 100vh; /*what is vh?*/
+}
