@@ -10,7 +10,8 @@
   height: 100vh; /*what is vh?*/
   width: 100%;
   background-color: lightblue;
-  background-image: url("nature.jpeg"); /*have to change background image*/
+  background-image: url("water2.jpeg");
+  opacity: 0.95;
   /*might not need from below + depends on our image*/
   background-position: center;
   background-size: cover; 
@@ -18,6 +19,16 @@
   padding-left: 5%;
   box-sizing: border-box;
   position: relative;
+}
+
+.text{
+  position: absolute;
+  max-width: 430px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 3px;
+  background: #F9F8F6;
+  opacity: 0.60;
 }
 
 .header /*the navigation bar*/
