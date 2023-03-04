@@ -97,6 +97,62 @@
 
   <!-- linking JavaScript code -->
   <script src="js/script.js"></script>
+
+  <!-- linking to the database -->
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+    const supabase = createClient('https://hfykhzgxnoopbcsdmaph.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhmeWtoemd4bm9vcGJjc2RtYXBoIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc3MTYxMzUsImV4cCI6MTk5MzI5MjEzNX0.1gqfN0SpN2p7aRZ_33Ld1stVj2gQGkiIhC0y07tULlg')
+  
+    window.onload = verifyUser
+
+    const loginForm = document.getElementById('form')
+    loginForm.onsubmit = async (e) => handleSubmit(e)
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const formProps = Object.fromEntries(formData);
+
+      try {
+        let { data, error } = await supabase.auth.signInWithPassword({
+          email: formProps.email,
+          password: formProps.password
+        })
+        if (error) throw error
+
+        if (data) {
+          localStorage.setItem('userEmail', data.email)
+          localStorage.setItem('userPassword', data.password)
+        }
+      } catch(error) {
+        console.log(error)
+      } finally {
+        verifyUser()
+      }
+    }
+
+    async function verifyUser() {
+      try {
+        const { data, error } = await supabase
+          .from('userInfo')
+          .select()
+        if(error) throw error
+
+        if(data) {
+          // TODO: figure out how to fetch data successfully in native JS
+          console.log(data)
+          // if(
+          //   data.email === localStorage.getItem('userEmail') && 
+          //   data.password === localStorage.getItem('userPassword')
+          // ) {
+          //   window.location('/signed_in.html')
+          // }
+        }
+      } catch(error) {
+        console.log(error)
+      }
+    }
+  </script>
 </body>
 
 </html>
