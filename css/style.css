@@ -137,13 +137,13 @@ form{
     font-weight: 400;
 }
 
-.link{
+.form-link{
     text-align: center;
     margin-top: 10px;
 }
 
-.link span,
-.link a{
+.form-link span,
+.form0link a{
     font-size: 14px;
     font-weight: 400;
     color: #232836;
@@ -154,7 +154,7 @@ form{
     text-decoration: none;
 }
 
-.content a:hover{
+.form-content a:hover{
     text-decoration: underline;
     text-decoration-style: wavy;
     text-decoration-color: #0061ff;
