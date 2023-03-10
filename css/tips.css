@@ -82,10 +82,12 @@
   .left{
     float: left;
     width: 50%;
+    align-items: center;
   }
 
   .right{
     float: right;
     width: 50%;
+    align-items: center;
   }
  
