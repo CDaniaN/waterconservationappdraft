@@ -5,6 +5,15 @@
   font-family: 'Poppins', sans-serif; /*might change font*/
 }
 
+/*this is for the tips page*/
+header{
+  font-size: 50px;
+  font-weight: 800;
+  color: #232836;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .container 
 {
   height: 100vh; /*what is vh?*/

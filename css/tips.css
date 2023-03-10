@@ -1,0 +1,93 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*Might delete this*/
+    font-family: 'Poppins', sans-serif; /*might change font*/
+  }
+
+  
+  .container 
+  {
+    height: 100vh; /*what is vh?*/
+    width: 100%;
+    background-color: lightblue;
+    background-image: url("water2.jpeg");
+    opacity: 0.95;
+    /*might not need from below + depends on our image*/
+    background-position: center;
+    background-size: cover; 
+    padding-right: 3%;
+    padding-left: 5%;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .text{
+    position: absolute;
+    max-width: 430px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 3px;
+    background: #F9F8F6;
+    opacity: 0.60;
+  }
+  
+  .header /*the navigation bar*/
+  {
+    width: 100%;
+    height: 50vh; /*might have to change*/
+    display: flex;
+    align-items: center;
+    margin: auto;
+  }
+ 
+  .content 
+  {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .content .text
+  {
+    position: relative;
+    max-width: 600px;
+  }
+  
+  .content .text h1
+  {
+    text-transform: uppercase;
+    font-weight: 800;
+    color: black;
+    line-height: 1.5em; /*should change*/
+    letter-spacing: .1em; /*might be able to change*/
+    margin-top: 80px;
+    font-size: 40px;
+  }
+  
+  .content .text h1 span
+  {
+    font-size: 50px;
+  }
+  
+  .content .text p
+  {
+    color: black;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 40px;
+    letter-spacing: .1em;
+  }
+
+  .left{
+    float: left;
+    width: 50%;
+  }
+
+  .right{
+    float: right;
+    width: 50%;
+  }
+ 
