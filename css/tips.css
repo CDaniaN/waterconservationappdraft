@@ -20,11 +20,10 @@
     background-color: lightblue;
     background-image: url("water2.jpeg");
     opacity: 0.95;
-    /*might not need from below + depends on our image*/
     background-position: center;
     background-size: cover; 
-    padding-right: 3%;
-    padding-left: 5%;
+    padding-right: 5%;
+    padding-left: 10%;
     box-sizing: border-box;
     position: relative;
   }
