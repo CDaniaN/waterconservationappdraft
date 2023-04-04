@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 650px) {
+    .columns {
+      width: 100%;
+      display: block;
+    }
+  }
+
+.columns {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.containers{
+    padding: 0 16px;
+}
+
+.containers::after, .row::after{
+    clear: both;
+    display: table;
+    content: "";
+}
+
+.title{
+    color: grey;
+}
+
+.buttons{
+    width: 100%;
+    border: none;
+    outline: 0;
+    padding: 8px;
+    display: inline-block;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.buttons:hover{
+    background-color: #555;
+}
