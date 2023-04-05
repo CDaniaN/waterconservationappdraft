@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    background-color: #caf0fe;
 }
 
 @media screen and (max-width: 650px) {
