@@ -30,7 +30,7 @@
           <!-- log in button -->
           <div class="field button-field">
             <!--<button>Log in</button>-->
-            <a href="/welcome_page"><button class="link" type="submit">Log in</button></a>
+            <a href="/"><button class="link" type="submit">Log in</button></a>
           </div>
         </form>
 
@@ -42,6 +42,10 @@
               >Sign up!</a>
           </span>
         </div>
+        <!--let { data, error } = await supabase.auth.signInWithPassword({
+        email: 'someone@email.com',
+        password: 'LsLYkQsiwOyMcJMBLEqy'})-->
+        
       </div>
     </div>
 </section>

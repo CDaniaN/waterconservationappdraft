@@ -8,7 +8,7 @@
       <!-- Add link to home page -->
       <li><a href="/">Your Data</a></li>
       <!--Add link and change name -->
-      <li><a href="/">Tips</a></li>
+      <li><a href="/tips">Tips</a></li>
       <!--Add link and change name -->
       <li><a href="/">About Us</a></li>
       <!--Add link -->
