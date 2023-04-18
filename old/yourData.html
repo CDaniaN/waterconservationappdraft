@@ -1,0 +1,35 @@
+import pymongo
+
+<!-- Connect to MongoDB --> 
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["water_usage"]
+collection = db["user_data"]
+
+# Get user input for each activity
+shower_time = int(input("Enter shower time in minutes: "))
+garden_time = int(input("Enter garden watering time in minutes: "))
+dishes_time = int(input("Enter dishes time in minutes: "))
+
+# Calculate water usage in gallons
+shower_usage = 2.5 * shower_time
+garden_usage = 5 * garden_time
+dishes_usage = 1.5 * dishes_time
+
+# Insert data into MongoDB
+data = {"shower": shower_usage, "garden": garden_usage, "dishes": dishes_usage}
+collection.insert_one(data)
+
+# Get data from MongoDB and create pie chart
+cursor = collection.find()
+labels = []
+values = []
+for doc in cursor:
+    labels.extend(doc.keys())
+    values.extend(doc.values())
+
+# Create pie chart using HTML and JavaScript
+chart_data = {'labels': labels, 'values': values}
+chart_html = f'<canvas id="chart"></canvas>\n<script>\nvar data = {chart_data};\nvar ctx = document.getElementById("chart").getContext("2d");\nvar chart = new Chart(ctx, {{\n    type: "pie",\n    data: {{\n        labels: data.labels,\n        datasets: [\n            {{\n                data: data.values,\n                backgroundColor: [\n                    "#FF6384",\n                    "#36A2EB",\n                    "#FFCE56"\n                ]\n            }}\n        ]\n    }},\n    options: {{\n        responsive: true,\n        legend: {{\n            position: "bottom"\n        }}\n    }}\n}});\n</script>'
+
+# Print chart HTML
+print(chart_html)
