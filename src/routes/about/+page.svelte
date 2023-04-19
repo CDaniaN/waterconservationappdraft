@@ -10,8 +10,8 @@
     {
       img: "imgPath",
       name: "Jennah Kanan",
-      description: "TODO",
-      email: "TODO@mail.com",
+      description: "I'm a senior at CSUF majoring in computer science. My hobbies inlude baking, hiking, and sitting at coffee shops with friends!",
+      email: "jkanan@csu.fullerton.edu",
     },
     {
       img: "imgPath",

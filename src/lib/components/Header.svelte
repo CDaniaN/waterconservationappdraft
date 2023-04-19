@@ -19,7 +19,7 @@
     <a href='/login'>
       <button class="button" id="button1">Log In</button>
     </a>
-    <a href = "/sign_up"><button class="button" id="button2">Sign Up</button></a>
+    <a href = "/signup"><button class="button" id="button2">Sign Up</button></a>
   </div>
   
   <style>
