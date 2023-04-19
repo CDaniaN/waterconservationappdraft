@@ -1,23 +1,26 @@
 <script>
+  import dania from "$lib/images/dania.jpeg"
+  import jahnvi from "$lib/images/jahnvi.jpeg"
+  import jennah from "$lib/images/jennah.jpeg"
   const members = [
     {
-      img: "imgPath",
+      img: jahnvi,
       name: "Jahnvi Panchal",
       description:
-        "I am a computer science major who enjoys front end development. My hobbies are reading, hiking, dancing, and playing with my puppy.",
+        "I am a computer science major who enjoys front end development. My hobbies are reading, hiking, dancing, and playing with my puppy!",
       email: "jahnvi@csu.fullerton.edu",
     },
     {
-      img: "imgPath",
+      img: jennah,
       name: "Jennah Kanan",
       description: "I'm a senior at CSUF majoring in computer science. My hobbies inlude baking, hiking, and sitting at coffee shops with friends!",
       email: "jkanan@csu.fullerton.edu",
     },
     {
-      img: "imgPath",
+      img: dania,
       name: "Dania Nasereddin",
       description:
-        "Hello! I'm Dania! I am a computer science major at CSUF. I love playing video games, walking my dog, and painting in my free time.",
+        "Hello! I'm Dania! I am a computer science major at CSUF. I love playing video games, walking my dog, and painting in my free time!",
       email: "dnasereddin@csu.fullerton.edu",
     },
   ];
@@ -161,11 +164,12 @@
 
   .content img {
     width: 100%;
-    max-height: 128px;
+    max-height: 256px;
     height: 100%;
     border: 1px solid black;
     border-radius: 4px;
     object-fit: cover;
+    object-position: 10% 0;
   }
 
   .button {

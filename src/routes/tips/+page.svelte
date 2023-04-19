@@ -1,4 +1,4 @@
-<section class="container forms">
+<section class=" forms">
   <div class="form tips">
     <div class="form content">
       <!-- Tips page -->

@@ -12,8 +12,6 @@
         <!--Add link and change name -->
         <li><a href="/about">About Us</a></li>
         <!--Add link -->
-        <li><a href="/contact">Contact</a></li>
-        <!--Can keep this or remove -->
       </ul>
     </nav>
     <a href='/login'>
@@ -35,9 +33,9 @@
     }
 
     nav {
-      flex: 1;
-      padding-left: 450px;
+      flex: 1
     }
+
 
     nav ul li /*to align navigation bar*/ {
       display: inline-block;
