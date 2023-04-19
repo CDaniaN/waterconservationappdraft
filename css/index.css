@@ -18,6 +18,17 @@
     background-image: url("water.jpeg");
 }
 
+
+.label
+{
+    font-size: 20px;
+    font-weight: 600;
+    color: #4692cd;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
 .form{
     position: absolute;
     max-width: 430px;

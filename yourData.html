@@ -12,19 +12,42 @@
 
 </head>
 
-<header>Data Input</header>
-<form id="water-usage-form">
-    <label for="shower-time">Shower Time (minutes):</label>
-    <input type="number" placeholder="How long did you take a shower for, in minutes?" name="shower-time" class="input">
+  <body>
+    <section class="container forms">
+      <div class="form water-usage-form">
+        <div class="form-content">
   
-    <label for="garden-watering-time">Garden Watering Time (minutes):</label>
-    <input type="number" placeholder="How long did you water the garden, in minutes?" name="garden-watering-time" class="input">
+          <!-- Log in page -->
+          <header>Data Input</header>
+          <form action="#">
   
-    <label for="dishes-time">Washing Dishes Time (minutes):</label>
-    <input type="number" placeholder="How long did you wash the dishes for, in minutes?" name="dishes-time" class="input">
+            <!-- password input field -->
+            <label for="shower-time">Shower time (minutes):</label>
+            <div class="field input-field">
+              <input type="number" placeholder="How long did you take a shower for?" name="shower-time" class="input">
+            </div>
+  
+            <!-- retype password input field -->
+            <label for="garden-watering-time">Water Gardening time (minutes):</label>
+            <div class="field input-field">
+              <input type="number" placeholder="How long did you water the garden?" name="garden-watering-time" class="input">
+            </div>
 
-    <label for="Teeth-time">Brushing Teeth Time (minutes):</label>
-    <input type="number" placeholder="How long did you brush your teeth for, in minutes?" name="Teeth-time" class="input">
+            <label for="dishes-time">Washing Dishes time (minutes):</label>
+            <div class="field input-field">
+              <input type="number" placeholder="How long did you wash the dishes for?" name="dishes-time" class="input">
+            </div>
+
+            <label for="Teeth-time">Brushing Teeth time (minutes):</label>
+            <div class="field input-field">
+              <input type="number" placeholder="How long did you brush your teeth for?" name="Teeth-time" class="input">
+            </div>
   
-    <button type="submit">Submit</button>
-  </form>
+            <!-- submits and brings you back to log in page , give this a a class and style --> 
+            <button class="submit" type = "submit">Submit</a></button>
+    
+  
+          </form>
+        </div>
+      </div>
+  </section>
