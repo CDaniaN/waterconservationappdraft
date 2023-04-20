@@ -174,7 +174,7 @@
 
   .button {
     padding: 8px;
-    background-color: black;
+    background-color: #00ace5;
     color: white;
     border-radius: 4px;
     text-align: center;
@@ -183,6 +183,6 @@
   }
 
   .button:hover {
-    background-color: #333;
+    background-color: #006d8f;
   }
 </style>

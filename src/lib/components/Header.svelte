@@ -6,7 +6,7 @@
       <ul>
         <li><a href="/">Home</a></li>
         <!-- Add link to home page -->
-        <li><a href="/">Your Data</a></li>
+        <li><a href="/dashboard">Your Data</a></li>
         <!--Add link and change name -->
         <li><a href="/tips">Tips</a></li>
         <!--Add link and change name -->

@@ -58,13 +58,6 @@
     text-align: center;
   }
 
-  .container {
-    width: 100%;
-    background-color: lightblue;
-    opacity: 0.95;
-    position: relative;
-  }
-
   .text {
     display: flex;
     flex-direction: column;
