@@ -55,7 +55,68 @@
   </div>
 </section>
 
- <style>
+<style>
+@import url('https://fonts.googleapis.com/css2family=Golos+Text:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    background-color: #caf0fe;
+    background-image: url("water.jpeg");
+}
+
+.form{
+    position: absolute;
+    max-width: 430px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 1px;
+    background: #F9F8F6;
+    opacity: 0.95;
+}
+
+header{
+    font-size: 28px;
+    font-weight: 600;
+    color: #232836;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+label
+{
+    font-size: 20px;
+    font-weight: 400;
+    color: #345e7d;
+    text-align: center;
+    margin-bottom: 0.2rem;
+    margin-top: 2rem;
+}
+
+form{
+    margin-top: 30px;
+}
+
+.form .field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
 .field input,
 .field button{
     height: 50px;
@@ -69,7 +130,6 @@
     background: #eeeeee;
     transition: background 0.2s, border-color 0.5s;
 }
-
 .field input{
     padding: 0 15px;
     border: 1px solid #dddddd;
@@ -79,25 +139,18 @@
     border-bottom-width: 2px;
 }
 
-.submit {
-    padding: 8px;
-    background-color: #00ace5;
-    color: white;
-    border-radius: 4px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 100ms ease-in-out;
-  }
 
-.submit:hover {
+.field button{
+    color: #fff;
     background-color: #006d8f;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    width: 99%;
+    font-weight: bold;
+    outline: none;
 }
 
-.form-content
-{
-    background: #f9f8f6;
-    opacity: 0.9;
+.field button:hover{
+    background-color: #00ace5;
 }
-
-
  </style>
