@@ -18,23 +18,12 @@
     background-image: url("water.jpeg");
 }
 
-
-.label
-{
-    font-size: 20px;
-    font-weight: 600;
-    color: #4692cd;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-
 .form{
     position: absolute;
     max-width: 430px;
     width: 100%;
     padding: 30px;
-    border-radius: 3px;
+    border-radius: 1px;
     background: #F9F8F6;
     opacity: 0.95;
 }
@@ -47,6 +36,16 @@ header{
     margin-bottom: 2rem;
 }
 
+label
+{
+    font-size: 20px;
+    font-weight: 400;
+    color: #345e7d;
+    text-align: center;
+    margin-bottom: 0.2rem;
+    margin-top: 2rem;
+}
+
 form{
     margin-top: 30px;
 }
@@ -55,7 +54,8 @@ form{
     position: relative;
     height: 50px;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
     border-radius: 6px;
 }
 
@@ -72,7 +72,6 @@ form{
     background: #eeeeee;
     transition: background 0.2s, border-color 0.5s;
 }
-
 .field input{
     padding: 0 15px;
     border: 1px solid #dddddd;
@@ -81,6 +80,7 @@ form{
 .field input:focus{
     border-bottom-width: 2px;
 }
+
 
 .field button{
     color: #fff;
@@ -92,22 +92,6 @@ form{
     outline: none;
 }
 
-.form-link{
-    text-align: center;
-    margin-top: 10px;
+.field button:hover{
+    background-color: #00ace5;
 }
-
-.form-link span,
-.form0link a{
-    font-size: 14px;
-    font-weight: 400;
-    color: #232836;
-}
-
-.form a{
-    color: #0061ff;
-    text-decoration: none;
-}
-
-
-
