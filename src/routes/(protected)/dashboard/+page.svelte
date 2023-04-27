@@ -49,7 +49,7 @@
         </div>
 
         <!-- submits and brings you back to log in page , give this a a class and style -->
-        <button class="submit" type="submit">Submit</button>
+        <button class="button" type="submit">Submit</button>
       </form>
     </div>
   </div>
@@ -65,26 +65,18 @@
     font-family: 'Golos Text', sans-serif;
 }
 
-.container{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-    background-color: #caf0fe;
-    background-image: url("water.jpeg");
-}
-
 .form{
-    position: absolute;
+    display: flex;
+    justify-content: center;
     max-width: 430px;
     width: 100%;
     padding: 30px;
     border-radius: 1px;
     background: #F9F8F6;
     opacity: 0.95;
+    margin: 16px;
 }
+
 
 header{
     font-size: 28px;
@@ -139,18 +131,17 @@ form{
     border-bottom-width: 2px;
 }
 
-
-.field button{
-    color: #fff;
-    background-color: #006d8f;
-    transition: all 0.4s ease;
-    cursor: pointer;
-    width: 99%;
-    font-weight: bold;
-    outline: none;
-}
-
-.field button:hover{
+.button {
+    padding: 8px;
     background-color: #00ace5;
-}
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 100ms ease-in-out;
+  }
+
+  .button:hover {
+    background-color: #006d8f;
+  }
  </style>

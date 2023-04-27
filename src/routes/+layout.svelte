@@ -18,6 +18,7 @@
   :global(.container) {
     display: flex;
     flex-direction: column;
+    align-items: center;
     min-height: 100vh; /*what is vh?*/ /* viewport height - mike */
     width: 100%;
     background-color: lightblue;
