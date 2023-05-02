@@ -1,33 +1,49 @@
+<script>
+  import { Auth } from "@supabase/auth-ui-svelte";
+  import { ThemeSupa } from "@supabase/auth-ui-shared";
+
+  export let data;
+</script>
+
 <svelte:head>
   <title>Forgot Password</title>
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section class="forms">
-  <div class="form forgot-password">
-    <div class="form-content">
-      <!-- Log in page -->
-      <header>Reset Password</header>
-      <form action="#">
-        <!-- username input field -->
-        <div class="field input-field">
-          <input type="password" placeholder="Password" class="password" />
-        </div>
+<section class='form'>
+  <header>Reset Password</header>
 
-        <!-- password input field -->
-        <div class="field input-field">
-          <input
-            type="password"
-            placeholder="Retype Password"
-            class="password"
-          />
-        </div>
-
-        <!-- submits and brings you back to log in page , give this a a class and style -->
-        <a href="/login"><button class="link" type="submit">Reset Password</button></a>
-      </form>
-    </div>
-  </div>
+  <Auth
+    supabaseClient={data.supabase}
+    view="forgotten_password"
+    redirectTo={`${data.url}/reset-password?redirect=/`}
+    showLinks={false}
+    appearance={{
+      theme: ThemeSupa,
+      style: {
+        input: `height: 50px;
+          width: 100%;
+          border: none;
+          display: block;
+          box-sizing: border-box;
+          font-size: 16px;
+          font-weight: 400;
+          border-radius: 6px;
+          background: #eeeeee;
+        `,
+        button: `height: 50px;
+          width: 100%;
+          border: none;
+          display: block;
+          box-sizing: border-box;
+          font-size: 16px;
+          font-weight: 400;
+          border-radius: 6px;
+          background-color: #00ace5;
+        `
+      },
+    }}
+  />
 </section>
 
 <style>

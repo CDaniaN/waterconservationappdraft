@@ -1,63 +1,56 @@
+<script>
+  import { Auth } from "@supabase/auth-ui-svelte";
+  import { ThemeSupa } from "@supabase/auth-ui-shared";
+
+  export let data;
+</script>
+
 <svelte:head>
   <title>Sign Up</title>
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section class="forms">
-  <div class="form signup">
-    <div class="form-content">
-      <header>Sign up</header>
-      <form action="#">
-        <!-- name input field -->
-        <div class="field input-field">
-          <input type="text" placeholder="Name" class="input" />
-        </div>
+<section class='form'>
+  <header>Sign Up</header>
 
-        <!-- username input field -->
-        <div class="field input-field">
-          <input type="text" placeholder="Username" class="input" />
-        </div>
+  <Auth
+    supabaseClient={data.supabase}
+    view="sign_up"
+    redirectTo={`${data.url}/signup?redirect=/`}
+    showLinks={false}
+    appearance={{
+      theme: ThemeSupa,
+      style: {
+        input: `height: 50px;
+          width: 100%;
+          border: none;
+          display: block;
+          box-sizing: border-box;
+          font-size: 16px;
+          font-weight: 400;
+          border-radius: 6px;
+          background: #eeeeee;
+        `,
+        button: `height: 50px;
+          width: 100%;
+          border: none;
+          display: block;
+          box-sizing: border-box;
+          font-size: 16px;
+          font-weight: 400;
+          border-radius: 6px;
+          background-color: #00ace5;
+        `
+      },
+    }}
+  />
 
-        <!-- email input field -->
-        <div class="field input-field">
-          <input type="email" placeholder="Email" class="input" />
-        </div>
-
-        <!-- password input field -->
-        <div class="field input-field">
-          <input
-            type="password"
-            placeholder="Create password"
-            class="password"
-          />
-        </div>
-
-        <!-- confirm password input field -->
-        <div class="field input-field">
-          <input
-            type="password"
-            placeholder="Confirm password"
-            class="password"
-          />
-        </div>
-
-        <!-- sign up button  -->
-        <div class="field button-field">
-          <!--<button>Sign up</button>-->
-          <a href="/login"><button class="link" type="submit">Sign Up</button></a>
-        </div>
-      </form>
-
-      <!-- log in link -->
-      <div class="form-link">
-        <span>
-          Already have an account?{" "}
-          <a class="link signup-link" href = "/login">
-            Log in!
-          </a>
-        </span>
-      </div>
-    </div>
+  <div class="form-link">
+    <span>
+      Already have an account?{" "}
+      <a class="link signup-link" href= "/login"
+        >Log in!</a>
+    </span>
   </div>
 </section>
 

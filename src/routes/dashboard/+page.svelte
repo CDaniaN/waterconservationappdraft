@@ -77,7 +77,6 @@
     margin: 16px;
 }
 
-
 header{
     font-size: 28px;
     font-weight: 600;
@@ -123,12 +122,12 @@ form{
     transition: background 0.2s, border-color 0.5s;
 }
 .field input{
-    padding: 0 15px;
+    padding: 0 20px;
     border: 1px solid #dddddd;
 }
 
 .field input:focus{
-    border-bottom-width: 2px;
+    border-bottom-width: 4px;
 }
 
 .button {

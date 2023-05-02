@@ -1,52 +1,72 @@
+<script>
+  import { Auth } from "@supabase/auth-ui-svelte";
+  import { ThemeSupa } from "@supabase/auth-ui-shared";
+
+  import { browser } from '$app/environment';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+
+	export let data
+	$: {
+		const redirectTo = $page.url.searchParams.get('redirect');
+
+		// check if user has been set in session store then redirect
+		if (browser && data.session) {
+			goto(redirectTo ?? '/dashboard');
+		}
+	}
+</script>
+
 <svelte:head>
   <title>Login</title>
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section class="forms">
-    <div class="form login">
-      <div class="form-content">
-        <!-- Log in page -->
-        <header>Log in</header>
-        <form action="#">
-          <!-- username input field -->
-          <div class="field input-field">
-            <input type="text" placeholder="Username" class="input" />
-          </div>
+<section class="form">
+  <header>Log in</header>
 
-          <!-- password input field -->
-          <div class="field input-field">
-            <input type="password" placeholder="Password" class="password" />
-          </div>
+  <Auth
+    supabaseClient={data.supabase}
+    view="sign_in"
+    redirectTo={`${data.url}/logging-in?redirect=/`}
+    showLinks={false}
+    appearance={{
+      theme: ThemeSupa,
+      style: {
+        input: `height: 50px;
+          width: 100%;
+          border: none;
+          display: block;
+          box-sizing: border-box;
+          font-size: 16px;
+          font-weight: 400;
+          border-radius: 6px;
+          background: #eeeeee;
+        `,
+        button: `height: 50px;
+          width: 100%;
+          border: none;
+          display: block;
+          box-sizing: border-box;
+          font-size: 16px;
+          font-weight: 400;
+          border-radius: 6px;
+          background-color: #00ace5;
+        `,
+      },
+    }}
+  />
 
-          <!-- "forgot your password?" link -->
-          <div class="form-link">
-            <a href="/forgot_password" class="forgot-pass"
-              >Forgot your password?</a
-            >
-          </div>
+  <div class="form-link">
+    <span>
+      Don't have an account?{" "}
+      <a class="link signup-link" href="/signup">Sign up!</a>
+    </span>
+  </div>
 
-          <!-- log in button -->
-          <div class="field button-field">
-            <!--<button>Log in</button>-->
-            <a href="/"><button class="link" type="submit">Log in</button></a>
-          </div>
-        </form>
-
-        <!-- "sign up!" link -->
-        <div class="form-link">
-          <span>
-            Don't have an account?{" "}
-            <a class="link signup-link" href= "/signup"
-              >Sign up!</a>
-          </span>
-        </div>
-        <!--let { data, error } = await supabase.auth.signInWithPassword({
-        email: 'someone@email.com',
-        password: 'LsLYkQsiwOyMcJMBLEqy'})-->
-        
-      </div>
-    </div>
+  <div class="form-link">
+    <a href="/forgot_password" class="forgot-pass">Forgot your password?</a>
+  </div>
 </section>
 
 <style>
@@ -93,7 +113,7 @@
     margin-top: 20px;
     border-radius: 6px;
   }
-  
+
   .field input,
   .field button {
     height: 50px;
