@@ -91,7 +91,7 @@
 //-------------------------------------------------------------------------------------------------------------------
 
    //retrieving the data from the database
-   function fetchData() {
+   async function fetchData() {
       return supabase
         .from('water_usage')
         .select('total_usage')
@@ -125,10 +125,11 @@
     }
   });
 }
+fetchData();
 //-------------------------------------------------------------------------------------------------------------------
    //retrieving the data for the current different usages 
    //const { data, error } = await supabase.from('water_usage').select('shower_usage, garden_usage, dishes_usage, teeth_usage').order('id', { ascending: false }).limit(1);
-   function fetchData2() {
+   async function fetchData2() {
       return supabase
         .from('water_usage')
         .select('shower_usage, garden_usage, dishes_usage, teeth_usage')
@@ -166,7 +167,7 @@
   });
 
   }
-
+fetchData();
 
 </script>
 
