@@ -1,98 +1,122 @@
+
 <script>
-     const supabaseUrl = "https://hfykhzgxnoopbcsdmaph.supabase.co/";
-      const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhmeWtoemd4bm9vcGJjc2RtYXBoIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc3MTYxMzUsImV4cCI6MTk5MzI5MjEzNX0.1gqfN0SpN2p7aRZ_33Ld1stVj2gQGkiIhC0y07tULlg";
+  const supabaseUrl = "https://hfykhzgxnoopbcsdmaph.supabase.co/";
+   const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhmeWtoemd4bm9vcGJjc2RtYXBoIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc3MTYxMzUsImV4cCI6MTk5MzI5MjEzNX0.1gqfN0SpN2p7aRZ_33Ld1stVj2gQGkiIhC0y07tULlg";
 
-      const supabase = createClient(supabaseUrl, supabaseKey);
+   const supabase = userData(supabaseUrl, supabaseKey);
 
-      const waterUsageForm = document.getElementById('water-usage-form');
+   const waterUsageForm = document.getElementById('water-usage-form');
 
-      waterUsageForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+   waterUsageForm.addEventListener('submit', async (event) => {
+     event.preventDefault();
 
-        const showerTime = parseInt(document.getElementById('shower-time').value, 10);
-        const gardenTime = parseInt(document.getElementById('garden-time').value, 10);
-        const dishesTime = parseInt(document.getElementById('dishes-time').value, 10);
-        const teethTime = parseInt(document.getElementById('teeth-time').value, 10);
+     const showerTime = parseInt(document.getElementById('shower-time').value, 10);
+     const gardenTime = parseInt(document.getElementById('garden-time').value, 10);
+     const dishesTime = parseInt(document.getElementById('dishes-time').value, 10);
+     const teethTime = parseInt(document.getElementById('teeth-time').value, 10);
 
-        const showerUsage = showerTime * 5; // Assumes 5 gallons of water per minute for showering
-        const gardenUsage = gardenTime * 13; // Assumes 13 gallons of water per minute for watering garden
-        const dishesUsage = dishesTime * 4; // Assumes 4 gallons of water per minute for doing dishes
-        const teethUsage = teethTime * 3; // Assumes 3 gallons of water per minute for doing dishes
+     const showerUsage = showerTime * 5; // Assumes 5 gallons of water per minute for showering
+     const gardenUsage = gardenTime * 13; // Assumes 13 gallons of water per minute for watering garden
+     const dishesUsage = dishesTime * 4; // Assumes 4 gallons of water per minute for doing dishes
+     const teethUsage = teethTime * 3; // Assumes 3 gallons of water per minute for doing dishes
 
-        const totalUsage = showerUsage + gardenUsage + dishesUsage + teethUsage;
+     const totalUsage = showerUsage + gardenUsage + dishesUsage + teethUsage;
 
-        const { data , error } = await supabase.from('water_usage').insert({ total_usage: totalUsage });
+     const { data , error } = await supabase.from('water_usage').insert({ total_usage: totalUsage });
 
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Water usage data submitted successfully!');
-        }
-      });
+     if (error) {
+       console.log(error);
+     } else {
+       console.log('Water usage data submitted successfully!');
+     }
+   });
 
-      //retrieving the data from the database
-      const { data: data1, error: error1 } = await supabase.from('water_usage').select('total_usage').order('id', { ascending: false }).limit(2);
+   //retrieving the data from the database
+   function fetchData() {
+      return supabase
+        .from('water_usage')
+        .select('total_usage')
+        .order('id', { ascending: false })
+        .limit(2)
+        .then(({ data: data1, error: error1 }) => {
+      // handle data and error
+         });
+    }
 
-      //getting the current and past water usage from the database
-      const currentUsage = data[0].total_usage;
-      const pastUsage = data[1].total_usage;
+fetchData();
 
-      //displaying the pie chart of current and past water usage
-      const waterUsageChart1 = new Chart(document.getElementById('water-usage-chart'), {
-        type: 'pie',
-        data: {
-          labels: ['Current Usage', 'Past Usage'],
-          datasets: [{
-              data: [currentUsage, pastUsage],
-              backgroundColor: ['#ff6384', '#36a2eb']
-          }]
-        },
-        options: {
-            title: {
-              display: true,
-              text: 'Water Usage'
-            }
-        }
-      });
+   //getting the current and past water usage from the database
+   const currentUsage = data[0].total_usage;
+   const pastUsage = data[1].total_usage;
 
-      //retrieving the data for the current different usages 
-      const { data, error } = await supabase.from('water_usage').select('shower_usage, garden_usage, dishes_usage, teeth_usage').order('id', { ascending: false }).limit(1);
+   //displaying the pie chart of current and past water usage
+   const waterUsageChart1 = new Chart(document.getElementById('water-usage-chart'), {
+     type: 'pie',
+     data: {
+       labels: ['Current Usage', 'Past Usage'],
+       datasets: [{
+           data: [currentUsage, pastUsage],
+           backgroundColor: ['#ff6384', '#36a2eb']
+       }]
+     },
+     options: {
+         title: {
+           display: true,
+           text: 'Water Usage'
+         }
+     }
+   });
 
-      //getting the current usages from the database 
-      const showerUsage = data[0].shower_usage;
-      const gardenUsage = data[0].garden_usage;
-      const dishesUsage = data[0].dishes_usage;
-      const teethUsage = data[0].teeth_usage;
+   //retrieving the data for the current different usages 
+   //const { data, error } = await supabase.from('water_usage').select('shower_usage, garden_usage, dishes_usage, teeth_usage').order('id', { ascending: false }).limit(1);
+   function fetchData2() {
+      return supabase
+        .from('water_usage')
+        .select('shower_usage, garden_usage, dishes_usage, teeth_usage')
+        .order('id', { ascending: false })
+        .limit(1)
+        .then(({ data: data1, error: error1 }) => {
+      // handle data and error
+         });
+    }
 
-      //displaying the current usage comparisons in a pie chart
-    const waterUsageChart = new Chart(document.getElementById('water-usage-chart'), {
-      type: 'pie',
-      data: {
-        labels: ['Shower', 'Garden', 'Dishes', 'Brushing Teeth'],
-        datasets: [{
-            data: [showerUsage, gardenUsage, dishesUsage, teethUsage],
-            backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#36a2eb']
-        }]
-      },
-      options: {
-          title: {
-            display: true,
-            text: 'Water Usage by Category'
-          }
-      }
-    });
+fetchData2();
+   //getting the current usages from the database 
+   const showerUsage = data[0].shower_usage;
+   const gardenUsage = data[0].garden_usage;
+   const dishesUsage = data[0].dishes_usage;
+   const teethUsage = data[0].teeth_usage;
+
+   //displaying the current usage comparisons in a pie chart
+ const waterUsageChart = new Chart(document.getElementById('water-usage-chart'), {
+   type: 'pie',
+   data: {
+     labels: ['Shower', 'Garden', 'Dishes', 'Brushing Teeth'],
+     datasets: [{
+         data: [showerUsage, gardenUsage, dishesUsage, teethUsage],
+         backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#36a2eb']
+     }]
+   },
+   options: {
+       title: {
+         display: true,
+         text: 'Water Usage by Category'
+       }
+   }
+ });
 
 </script>
+
 
 
 <section class="form">
 <div>
   <div class="form water-usage-form">
     <div class="form-content">
-      <!-- Data input page -->
+      <!-- Log in page -->
       <header>Data Input</header>
       <form action="#">
-        <!-- shower time input field -->
+        <!-- password input field -->
         <label for="shower-time">Shower time (minutes):</label>
         <div class="field input-field">
           <input
@@ -103,7 +127,7 @@
           />
         </div>
 
-        <!-- gardening time input field -->
+        <!-- retype password input field -->
         <label for="garden-watering-time">Water Gardening time (minutes):</label
         >
         <div class="field input-field">
@@ -115,7 +139,6 @@
           />
         </div>
 
-        <!-- dishes time input field -->
         <label for="dishes-time">Washing Dishes time (minutes):</label>
         <div class="field input-field">
           <input
@@ -126,7 +149,6 @@
           />
         </div>
 
-        <!-- brushing teeth time input field -->
         <label for="Teeth-time">Brushing Teeth time (minutes):</label>
         <div class="field input-field">
           <input
@@ -137,16 +159,16 @@
           />
         </div>
 
-        <!-- submit button -->
+        <!-- submits and brings you back to log in page , give this a a class and style -->
         <button class="button" type="submit">Submit</button>
       </form>
     </div>
   </div>
 </section>
-  
-  PUBLIC_SUPABASE_URL="https://hfykhzgxnoopbcsdmaph.supabase.co/"
 
 
+
+<canvas id="water-usage-chart"></canvas>
 <style>
 @import url('https://fonts.googleapis.com/css2family=Golos+Text:wght@400;500;600&display=swap');
 
@@ -232,7 +254,12 @@ form{
     transition: background-color 100ms ease-in-out;
   }
 
-  .button:hover {
-    background-color: #006d8f;
-  }
+.button:hover {
+  background-color: #006d8f;
+}
+
+water-usage-chart{
+  width: 50%;
+  margin: 0 auto;
+}
  </style>
