@@ -86,8 +86,7 @@
       const { data , error } = await supabase.from('water_usage').insert({ total_usage: totalUsage });
       const { data1 , error1 } = await supabase.from('water_usage').insert({ shower_time: showerUsage1, garden_time: gardenUsage1,teeth_time: teethUsage1  });
     });
-    await fetchData();
-    await fetchData2();
+
   
 //-------------------------------------------------------------------------------------------------------------------
 
