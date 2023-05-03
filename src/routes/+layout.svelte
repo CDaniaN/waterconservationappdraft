@@ -29,19 +29,18 @@
   :global(*) {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /*Might delete this*/
-    font-family: "Poppins", sans-serif; /*might change font*/
+    box-sizing: border-box; 
+    font-family: "Poppins", sans-serif; 
   }
 
   :global(.container) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh; /*what is vh?*/ /* viewport height - mike */
+    min-height: 100vh; 
     width: 100%;
     background-color: lightblue;
-    background-image: url("$lib/images/water2.jpeg"); /*have to change background image*/
-    /*might not need from below + depends on our image*/
+    background-image: url("$lib/images/water2.jpeg"); 
     background-position: center;
     background-size: cover;
     padding-right: 3%;
