@@ -2,10 +2,10 @@
 <div>
   <div class="form water-usage-form">
     <div class="form-content">
-      <!-- Log in page -->
+      <!-- Data input page -->
       <header>Data Input</header>
       <form action="#">
-        <!-- password input field -->
+        <!-- shower time input field -->
         <label for="shower-time">Shower time (minutes):</label>
         <div class="field input-field">
           <input
@@ -16,7 +16,7 @@
           />
         </div>
 
-        <!-- retype password input field -->
+        <!-- gardening time input field -->
         <label for="garden-watering-time">Water Gardening time (minutes):</label
         >
         <div class="field input-field">
@@ -28,6 +28,7 @@
           />
         </div>
 
+        <!-- dishes time input field -->
         <label for="dishes-time">Washing Dishes time (minutes):</label>
         <div class="field input-field">
           <input
@@ -38,6 +39,7 @@
           />
         </div>
 
+        <!-- brushing teeth time input field -->
         <label for="Teeth-time">Brushing Teeth time (minutes):</label>
         <div class="field input-field">
           <input
@@ -48,7 +50,7 @@
           />
         </div>
 
-        <!-- submits and brings you back to log in page , give this a a class and style -->
+        <!-- submit button -->
         <button class="button" type="submit">Submit</button>
       </form>
     </div>
