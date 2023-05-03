@@ -5,11 +5,8 @@
 
 <section>
   <div class="content">
-    <!--I think can change name "content" -->
     <div class="text">
-      <!--I think can change name "text" -->
       <h1>Save Water <br /> <span>Conserve Water</span></h1>
-      <!-- Change words -->
       <p>
         Water is an important source in our world. The water usage tracker app
         gives a way for the users to track their water usage in order to promote
@@ -18,7 +15,6 @@
         to start. This website can provide the beginning steps in order for the
         user to start taking action to increase sustainability.
       </p>
-      <!--Add more later -->
     </div>
   </div>
 
@@ -45,8 +41,8 @@
     text-transform: uppercase;
     font-weight: 800;
     color: black;
-    line-height: 1.5em; /*should change*/
-    letter-spacing: 0.1em; /*might be able to change*/
+    line-height: 1.5em;
+    letter-spacing: 0.1em;
     margin-top: 80px;
     font-size: 40px;
   }
