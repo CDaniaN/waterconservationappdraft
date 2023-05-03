@@ -112,7 +112,7 @@
        labels: ['Current Usage', 'Past Usage'],
        datasets: [{
            data: [currentUsage, pastUsage],
-           backgroundColor: ['#ff6384', '#36a2eb']
+           backgroundColor: ['#093655', '#36a2eb']
        }]
      },
      options: {
@@ -152,7 +152,7 @@ fetchData();
           labels: ['Shower', 'Garden', 'Dishes', 'Teeth'],
           datasets: [{
             data: [showerUsage, gardenUsage, dishesUsage, teethUsage],
-            backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#cc65fe']
+            backgroundColor: ['0D65EB', '#36a2eb', '#0B2537', '#09BBF6']
           }]
         },
         options: {
