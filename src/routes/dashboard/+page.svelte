@@ -56,12 +56,14 @@
     </div>
   </div>
 </section>
+  
+  PUBLIC_SUPABASE_URL="https://hfykhzgxnoopbcsdmaph.supabase.co/"
 
 <!-------------------------- idk if im supposed to put this here.. --------------------------
 <DOCTYPE html>
     <script>
-      const supabaseUrl = 'https://your-supabase-url.com';
-      const supabaseKey = 'your-supabase-key';
+      const supabaseUrl = "https://hfykhzgxnoopbcsdmaph.supabase.co/";
+      const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhmeWtoemd4bm9vcGJjc2RtYXBoIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc3MTYxMzUsImV4cCI6MTk5MzI5MjEzNX0.1gqfN0SpN2p7aRZ_33Ld1stVj2gQGkiIhC0y07tULlg";
 
       const supabase = createClient(supabaseUrl, supabaseKey);
 
