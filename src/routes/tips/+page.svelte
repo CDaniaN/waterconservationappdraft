@@ -51,7 +51,7 @@
 </section>
 
 <style>
-  .header /*the navigation bar*/
+  .header 
   {
     padding: 30px;
     font-size: 50px;
@@ -68,8 +68,8 @@
     text-transform: uppercase;
     font-weight: 800;
     color: black;
-    line-height: 1.5em; /*should change*/
-    letter-spacing: 0.1em; /*might be able to change*/
+    line-height: 1.5em; 
+    letter-spacing: 0.1em;
     font-size: 40px;
   }
 
