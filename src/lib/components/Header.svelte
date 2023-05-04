@@ -1,28 +1,19 @@
 <script>
-  import { enhance } from '$app/forms';
+  import { enhance } from "$app/forms";
+  import { invalidateAll } from "$app/navigation";
 
-	
-	export let form;
-  export let data
+  export let form;
+  export let data;
 
-	let loading = false;
+  let loading = false;
 
-
-	function handleSubmit() {
-		loading = true;
-		return async () => {
-			loading = false;
-		};
-	}
-
-  // $: {
-  // 	const redirectTo = $page.url.searchParams.get('redirect');
-
-  // 	// check if user has been set in session store then redirect
-  // 	if (browser && data.session) {
-  // 		goto(redirectTo ?? '/dashboard');
-  // 	}
-  // }
+  function handleSubmit() {
+    loading = true;
+    return async () => {
+      loading = false;
+      invalidateAll();
+    };
+  }
 </script>
 
 <div class="header">
@@ -31,9 +22,7 @@
   <nav>
     <!-- Navigation bar -->
     <ul>
-      <li><a href="/">Home</a></li>
-      <!-- Add link to home page -->
-      <li><a href="/dashboard">Your Data</a></li>
+      <li><a href="/">{!data.session ? "Home" : "Your Data"}</a></li>
       <!--Add link and change name -->
       <li><a href="/tips">Tips</a></li>
       <!--Add link and change name -->
@@ -42,17 +31,14 @@
     </ul>
   </nav>
   {#if !data.session}
-    
     <a href="/login">
       <button class="button" id="button1">Log In</button>
     </a>
     <a href="/signup"><button class="button" id="button2">Sign Up</button></a>
   {:else}
-  <form method="post" action="?/signout" use:enhance={handleSubmit}>
-    <div>
-      <button class="button block" disabled={loading}>Sign Out</button>
-    </div>
-  </form>
+    <form method="post" action="?/signout" use:enhance={handleSubmit}>
+      <button class="button" id="button1" disabled={loading}>Sign Out</button>
+    </form>
   {/if}
 </div>
 

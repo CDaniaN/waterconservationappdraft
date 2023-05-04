@@ -1,251 +1,201 @@
-<section class="form">
-  <div>
-    <div class="form water-usage-form">
-      <div class="form-content">
-        <!-- Log in page -->
-        <header>Data Input</header>
-        <form action="#">
-          <!-- password input field -->
-          <label for="shower-time">Shower time (minutes):</label>
-          <div class="field input-field">
-            <input
-              type="number"
-              placeholder="How long did you take a shower for?"
-              name="shower-time"
-              class="input"
-            />
-          </div>
-  
-          <!-- retype password input field -->
-          <label for="garden-watering-time">Water Gardening time (minutes):</label
-          >
-          <div class="field input-field">
-            <input
-              type="number"
-              placeholder="How long did you water the garden?"
-              name="garden-watering-time"
-              class="input"
-            />
-          </div>
-  
-          <label for="dishes-time">Washing Dishes time (minutes):</label>
-          <div class="field input-field">
-            <input
-              type="number"
-              placeholder="How long did you wash the dishes for?"
-              name="dishes-time"
-              class="input"
-            />
-          </div>
-  
-          <label for="Teeth-time">Brushing Teeth time (minutes):</label>
-          <div class="field input-field">
-            <input
-              type="number"
-              placeholder="How long did you brush your teeth for?"
-              name="Teeth-time"
-              class="input"
-            />
-          </div>
-  
-          <!-- submits and brings you back to log in page , give this a a class and style -->
-          <button class="button" type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
-  </section>
-  
-  
+<script>
+  import { enhance } from "$app/forms";
+  import { onMount } from "svelte";
+  import { Chart } from "chart.js/auto";
 
-  
-  <script>
-   
-    const supabaseUrl = "https://hfykhzgxnoopbcsdmaph.supabase.co/";
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhmeWtoemd4bm9vcGJjc2RtYXBoIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc3MTYxMzUsImV4cCI6MTk5MzI5MjEzNX0.1gqfN0SpN2p7aRZ_33Ld1stVj2gQGkiIhC0y07tULlg";
-  
-    const supabase = createClient(supabaseUrl, supabaseKey);
-  
-    const waterUsageForm = document.querySelector('.water-usage-form form');
-  
-    waterUsageForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-  
-      const showerTime = parseInt(document.getElementById('shower-time').value, 10);
-      const gardenTime = parseInt(document.getElementById('garden-watering-time').value, 10);
-      const dishesTime = parseInt(document.getElementById('dishes-time').value, 10);
-      const teethTime = parseInt(document.getElementById('Teeth-time').value, 10);
-  
-      const showerUsage1 = showerTime * 5; // Assumes 5 gallons of water per minute for showering
-      const gardenUsage1 = gardenTime * 13; // Assumes 13 gallons of water per minute for watering garden
-      const dishesUsage1 = dishesTime * 4; // Assumes 4 gallons of water per minute for doing dishes
-      const teethUsage1 = teethTime * 3; // Assumes 3 gallons of water per minute for brushing teeth
-  
-      const totalUsage = showerUsage1 + gardenUsage1 + dishesUsage1 + teethUsage1;
-  
+  export let data;
+  export let form;
 
-      const { data , error } = await supabase.from('water_usage').insert({ total_usage: totalUsage });
-      const { data1 , error1 } = await supabase.from('water_usage').insert({ shower_time: showerUsage1, garden_time: gardenUsage1,teeth_time: teethUsage1  });
-    });
+  let { profile } = data;
+  let chart;
 
-  
-//-------------------------------------------------------------------------------------------------------------------
+  let profileForm;
+  let loading = false;
+  let showerTime = profile?.showerTime;
+  let gardenTime = profile?.gardenTime;
+  let dishTime = profile?.dishTime;
+  let teethTime = profile?.teethTime;
 
-   //retrieving the data from the database
-   async function fetchData() {
-      return supabase
-        .from('water_usage')
-        .select('total_usage')
-        .order('id', { ascending: false })
-        .limit(2)
-        .then(({ data, error}) => {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log(data);
-            const currentUsage = data[0].total_usage;
-            const pastUsage = data[1].total_usage;
+  const handleSubmit = () => {
+    loading = true;
+    return async () => {
+      loading = false;
+      document.getElementById("myForm").reset();
+    };
+  };
 
-            //displaying the pie chart of current and past water usage
-    const waterUsageChart1 = new Chart(document.getElementById('water-usage-chart'), {
-      type: 'pie',
+  onMount(() => {
+    new Chart(chart, {
+      type: "pie",
       data: {
-       labels: ['Current Usage', 'Past Usage'],
-       datasets: [{
-           data: [currentUsage, pastUsage],
-           backgroundColor: ['#093655', '#36a2eb']
-       }]
-     },
-     options: {
-         title: {
-           display: true,
-           text: 'Water Usage'
-         }
-        }
-      });
-    }
-  });
-}
-fetchData();
-//-------------------------------------------------------------------------------------------------------------------
-   //retrieving the data for the current different usages 
-   //const { data, error } = await supabase.from('water_usage').select('shower_usage, garden_usage, dishes_usage, teeth_usage').order('id', { ascending: false }).limit(1);
-   async function fetchData2() {
-      return supabase
-        .from('water_usage')
-        .select('shower_usage, garden_usage, dishes_usage, teeth_usage')
-        .order('id', { ascending: false })
-        .limit(1)
-        .then(({ data: data1, error: error1 }) => {
-          if (error1) {
-            console.log(error1);
-          } else {
-            console.log(data1);
-            const showerUsage = data2[0].shower_time;
-            const gardenUsage = data2[0].garden_time;
-            const dishesUsage = data2[0].dishes_time;
-            const teethUsage = data2[0].teeth_time;
-
-      // display the bar chart for the current usages
-      const waterUsageChart2 = new Chart(document.getElementById('water-usage-chart'), {
-        type: 'bar',
-        data: {
-          labels: ['Shower', 'Garden', 'Dishes', 'Teeth'],
-          datasets: [{
-            data: [showerUsage, gardenUsage, dishesUsage, teethUsage],
-            backgroundColor: ['0D65EB', '#36a2eb', '#0B2537', '#09BBF6']
-          }]
+        labels: ["Shower", "Garden", "Dishes", "Teeth"],
+        datasets: [
+          {
+            data: [showerTime, gardenTime, dishTime, teethTime],
+            backgroundColor: ["#0D65EB", "#36a2eb", "#0B2537", "#09BBF6"],
+          },
+        ],
+      },
+      options: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: "Current Water Usages",
         },
-        options: {
-          legend: { display: false },
-          title: {
-            display: true,
-            text: 'Current Water Usages'
-          }
-        }
-      });
-    }
+      },
+    });
   });
-
-  }
-fetchData();
-
 </script>
 
-<canvas id="water-usage-chart"></canvas>
-<style>
-@import url('https://fonts.googleapis.com/css2family=Golos+Text:wght@400;500;600&display=swap');
+<section class="dash">
+  <div class="form">
+    <!-- Log in page -->
+    <header>Data Input</header>
+    <form
+      id="myForm"
+      method="post"
+      action="?/update"
+      use:enhance={handleSubmit}
+      bind:this={profileForm}
+    >
+      <!-- password input field -->
+      <label for="showerTime">Shower time ({showerTime}):</label>
+      <input
+        type="number"
+        placeholder="How long did you take a shower for?"
+        name="showerTime"
+        class="input"
+      />
 
-*{
+      <!-- retype password input field -->
+      <label for="gardenTime">Water Gardening time ({gardenTime}):</label>
+      <input
+        type="number"
+        placeholder="How long did you water the garden?"
+        name="gardenTime"
+        class="input"
+      />
+
+      <label for="dishTime">Washing Dishes time ({dishTime}):</label>
+      <input
+        type="number"
+        placeholder="How long did you wash the dishes for?"
+        name="dishTime"
+        class="input"
+      />
+
+      <label for="teethTime">Brushing Teeth time ({teethTime}):</label>
+      <input
+        type="number"
+        placeholder="How long did you brush your teeth for?"
+        name="teethTime"
+        class="input"
+      />
+
+      <!-- submits and brings you back to log in page , give this a a class and style -->
+      <button
+        class="button"
+        type="submit"
+        value={loading ? "Loading..." : "Update"}
+        disabled={loading}
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <div class="pie"><canvas bind:this={chart} /></div>
+</section>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2family=Golos+Text:wght@400;500;600&display=swap");
+
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Golos Text', sans-serif;
-}
+    font-family: "Golos Text", sans-serif;
+  }
 
-.form{
+  .dash {
     display: flex;
+    gap: 32px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     justify-content: center;
     max-width: 430px;
     width: 100%;
-    padding: 30px;
-    border-radius: 1px;
-    background: #F9F8F6;
+    border-radius: 8px;
+    background: #f9f8f6;
     opacity: 0.95;
+    padding: 32px;
     margin: 16px;
-}
+    gap: 16px;
+  }
 
-header{
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    gap: 8px;
+  }
+
+  header {
     font-size: 28px;
     font-weight: 600;
     color: #232836;
     text-align: center;
-    margin-bottom: 2rem;
-}
+  }
 
-label
-{
+  label {
     font-size: 20px;
     font-weight: 400;
     color: #345e7d;
     text-align: center;
-    margin-bottom: 0.2rem;
-    margin-top: 2rem;
-}
+  }
 
-form{
-    margin-top: 30px;
-}
-
-.form .field{
+  .input {
+    padding: 0 20px;
+    border: 1px solid #dddddd;
     position: relative;
     height: 50px;
     width: 100%;
-    margin-top: 5px;
-    margin-bottom: 20px;
     border-radius: 6px;
-}
+  }
 
-.field input{
-    padding: 0 20px;
-    border: 1px solid #dddddd;
-}
-
-.field input:focus{
+  .input:focus {
     border-bottom-width: 4px;
-}
+  }
 
-.button {
+  .button {
     padding: 8px;
     background-color: #00ace5;
     color: white;
+    border: none;
     border-radius: 4px;
     text-align: center;
     text-decoration: none;
     transition: background-color 100ms ease-in-out;
   }
 
-.button:hover {
-  background-color: #006d8f;
-}
+  .button:hover {
+    background-color: #006d8f;
+  }
 
- </style>
+  .pie {
+    width: 500px;
+    height: 500px;
+  }
+</style>

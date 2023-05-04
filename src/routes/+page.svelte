@@ -17,10 +17,6 @@
       </p>
     </div>
   </div>
-
-  <div class="water">
-    <img src="/pepsi.png" alt="" />
-  </div>
 </section>
 
 <style>
