@@ -21,7 +21,7 @@
 
             <h1>2. TAKE SHORTER SHOWERS</h1>
             <p>
-              Showers can take up to 10 galons of water per minute. Reducing
+              Showers can take up to 10 gallons of water per minute. Reducing
               shower time can make a big difference in an effort to reduce your
               water usage.
             </p>
