@@ -32,7 +32,7 @@
         datasets: [
           {
             data: [showerTime, gardenTime, dishTime, teethTime],
-            backgroundColor: ["#0D65EB", "#36a2eb", "#0B2537", "#09BBF6"],
+            backgroundColor: ["#325874", "#6897bb", "#a6cee3", "#e8f3ff"],
           },
         ],
       },
@@ -50,6 +50,7 @@
 <section class="dash">
   <div class="form">
     <header>Data Input</header>
+    <p> Refresh page to show pie chart!</p>
     <form
       id="myForm"
       method="post"
@@ -57,7 +58,7 @@
       use:enhance={handleSubmit}
       bind:this={profileForm}
     >
-      <label for="showerTime">Shower time ({showerTime}):</label>
+      <label for="showerTime">Shower time ({showerTime} gallons):</label>
       <input
         type="number"
         placeholder="How long did you take a shower for?"
@@ -65,7 +66,7 @@
         class="input"
       />
 
-      <label for="gardenTime">Water Gardening time ({gardenTime}):</label>
+      <label for="gardenTime">Water Gardening time ({gardenTime} gallons):</label>
       <input
         type="number"
         placeholder="How long did you water the garden?"
@@ -73,7 +74,7 @@
         class="input"
       />
 
-      <label for="dishTime">Washing Dishes time ({dishTime}):</label>
+      <label for="dishTime">Washing Dishes time ({dishTime} gallons):</label>
       <input
         type="number"
         placeholder="How long did you wash the dishes for?"
@@ -81,7 +82,7 @@
         class="input"
       />
 
-      <label for="teethTime">Brushing Teeth time ({teethTime}):</label>
+      <label for="teethTime">Brushing Teeth time ({teethTime} gallons):</label>
       <input
         type="number"
         placeholder="How long did you brush your teeth for?"
@@ -131,6 +132,13 @@
     padding: 32px;
     margin: 16px;
     gap: 16px;
+  }
+  
+  .form p {
+    color: rgb(56, 61, 68);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
   }
 
   .form-content {
