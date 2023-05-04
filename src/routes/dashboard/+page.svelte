@@ -49,7 +49,6 @@
 
 <section class="dash">
   <div class="form">
-    <!-- Log in page -->
     <header>Data Input</header>
     <form
       id="myForm"
@@ -58,7 +57,6 @@
       use:enhance={handleSubmit}
       bind:this={profileForm}
     >
-      <!-- password input field -->
       <label for="showerTime">Shower time ({showerTime}):</label>
       <input
         type="number"
@@ -67,7 +65,6 @@
         class="input"
       />
 
-      <!-- retype password input field -->
       <label for="gardenTime">Water Gardening time ({gardenTime}):</label>
       <input
         type="number"
@@ -92,7 +89,6 @@
         class="input"
       />
 
-      <!-- submits and brings you back to log in page , give this a a class and style -->
       <button
         class="button"
         type="submit"
