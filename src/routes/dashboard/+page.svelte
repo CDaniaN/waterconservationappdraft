@@ -61,7 +61,7 @@
       <label for="showerTime">Shower time ({showerTime} gallons):</label>
       <input
         type="number"
-        placeholder="How long did you take a shower for?"
+        placeholder="How long did you take a shower for (in minutes)?"
         name="showerTime"
         class="input"
       />
@@ -69,7 +69,7 @@
       <label for="gardenTime">Water Gardening time ({gardenTime} gallons):</label>
       <input
         type="number"
-        placeholder="How long did you water the garden?"
+        placeholder="How long did you water the garden (in minutes)?"
         name="gardenTime"
         class="input"
       />
@@ -77,7 +77,7 @@
       <label for="dishTime">Washing Dishes time ({dishTime} gallons):</label>
       <input
         type="number"
-        placeholder="How long did you wash the dishes for?"
+        placeholder="How long did you wash the dishes for (in minutes)?"
         name="dishTime"
         class="input"
       />
@@ -85,7 +85,7 @@
       <label for="teethTime">Brushing Teeth time ({teethTime} gallons):</label>
       <input
         type="number"
-        placeholder="How long did you brush your teeth for?"
+        placeholder="How long did you brush your teeth for (in minutes)?"
         name="teethTime"
         class="input"
       />
