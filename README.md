@@ -1,5 +1,9 @@
 # Project by: Jennah Kanan,  Dania Nasereddin, Jahnvi Panchal
 
+To view the live project, [click here!](https://waterconservationappdraft.vercel.app/)
+
+Running this code locally will result in errors since we're keeping the API keys secret.
+
 ## Make sure to have Node JS installed
 
 # To run the code: 
