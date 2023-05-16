@@ -1,15 +1,15 @@
 # Project by: Jennah Kanan,  Dania Nasereddin, Jahnvi Panchal
 
-# To run the code first, install these into your terminal 
+## Make sure to have Node JS installed
 
-npm install @supabase/supabase-js
-npm install @supabase/auth-helpers-sveltekit
-npm install @supabase/auth-ui-svelte @supabase/auth-ui-shared
-npm install --save @supabase/supabase-js
-npm install chart.js 
+# To run the code: 
 
-# Then run this command 
-npm run dev 
+## In the command line, type: 
 
-#then type 'o' to open the website 
-o
+./deploy.sh
+
+## After it loads, hold ctrl and click the http link
+
+## !!For Windows!!
+## On windows make sure you have Git installed
+## On VS Code make sure to use the drop down on the terminal change the powershell terminal to Git Bash
