@@ -5,6 +5,7 @@
 # To run the code: 
 
 ## In the command line, type: 
+chmod u+x deploy.sh
 
 ./deploy.sh
 
